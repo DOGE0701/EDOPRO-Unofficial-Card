@@ -15,9 +15,11 @@ function s.initial_effect(c)
 	c:RegisterEffect(e1)
 end
 s.listed_series={0x55,0x7b}
-
+function s.filter(c)
+	return c:IsType(TYPE_SPELL+TYPE_TRAP)
+end
 function s.cfilter(c)
-	return c:IsFaceup() and c:IsSetCard(0x55,0x7b)
+	return c:IsFaceup() and c:IsSetCard(0x55) or c:IsSetCard(0x7b)
 end
 function s.damcon(e)
 	return Duel.IsExistingMatchingCard(s.cfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,1,nil)
