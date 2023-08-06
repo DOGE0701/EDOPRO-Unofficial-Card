@@ -9,16 +9,13 @@ function s.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
 	e1:SetCode(EVENT_FREE_CHAIN)
-	e1:SetHintTiming(0,TIMING_END_PHASE+TIMING_EQUIP)
 	e1:SetTarget(s.target)
 	e1:SetOperation(s.activate)
 	e1:SetCondition(s.damcon)
 	c:RegisterEffect(e1)
 end
 s.listed_series={0x55,0x7b}
-function s.filter(c)
-	return c:IsType(TYPE_SPELL+TYPE_TRAP)
-end
+
 function s.cfilter(c)
 	return c:IsFaceup() and c:IsSetCard(0x55,0x7b)
 end
