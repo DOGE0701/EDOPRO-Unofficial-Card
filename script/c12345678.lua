@@ -16,7 +16,7 @@ function s.initial_effect(c)
 end
 s.listed_series={0x55,0x7b}
 function s.cfilter(c)
-	return c:IsFaceup() and c:IsSetCard(0xf8)
+	return c:IsFaceup() and c:IsSetCard(0x55,0x7b)
 end
 function s.damcon(e)
 	return Duel.IsExistingMatchingCard(s.cfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,1,nil)
