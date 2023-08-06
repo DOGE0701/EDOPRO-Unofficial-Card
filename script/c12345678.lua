@@ -1,4 +1,4 @@
---갤럭시
+--갤럭시 기아스
 local s,id=GetID()
 function s.initial_effect(c)
 	--Activate
@@ -15,6 +15,9 @@ function s.initial_effect(c)
 	c:RegisterEffect(e1)
 end
 s.listed_series={0x55,0x7b}
+function s.filter(c)
+	return c:IsType(TYPE_SPELL+TYPE_TRAP)
+end
 function s.cfilter(c)
 	return c:IsFaceup() and c:IsSetCard(0x55,0x7b)
 end
